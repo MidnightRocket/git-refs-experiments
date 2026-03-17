@@ -87,7 +87,7 @@ git push origin "refs/custom/hidden-ref:refs/custom/hidden-ref"
 ```
 
 
-# Danling commits
+# Dangling commits
 
 ## In Pull Request
 In the pull request #1 a dangling commit has been created by a force push.  
@@ -110,9 +110,9 @@ EOF
 
 ## Referenced in an Issue
 Issue #2 mentions a dangling commit, which is expected to be kept, because it is referenced in that Issue.
-The issue also mentions a short hash, to test if short hash longivity is well shorter. 
+The issue also mentions a short hash, to test if short hash longivity is shorter. 
 
 
 ## Referenced in a commit message
 The commit 5570e77cb5bb7c8801a748b20a2924381f7753f0 on branch `some-other-branch` references a series of squashed commits.
-It will be interesting to see these commits will be garbage collected or not.
+It will be interesting to see if these commits will be garbage collected or not.
