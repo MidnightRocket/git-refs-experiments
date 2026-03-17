@@ -87,10 +87,32 @@ git push origin "refs/custom/hidden-ref:refs/custom/hidden-ref"
 ```
 
 
-# Danling commit in Pull Request
+# Danling commits
+
+## In Pull Request
 In the pull request #1 a dangling commit has been created by a force push.  
 The commit `4f7589e22189ee50e3ac2a22351c3e04ed67388a` is expected to be kept
 because it is tracked by the pull request
 
 
+## Totally unreferenced commit
+This commit (`633f72bc4a0cbb2dc61d2515f6ea3f257f95cc5f`) was once pushed to `some-other-branch`,
+but is now dangling. This serves as the sole reference to that commit.
+It is expected that this commit is garbage collected. 
 
+If that commit is not garbage collected eventually, then that might mean that Github has detected the mention of that commit in this README.
+As such the following decodes into another dangling commit, which should be masked from Github in base64 encoding.
+```sh
+base64 -d <<EOF
+NzZlZDIwNmZmMGM1OTc0MDZiZjFiOTgwODRjNmM2NDVhOWI1MDZiZg==
+EOF
+```
+
+## Referenced in an Issue
+Issue #2 mentions a dangling commit, which is expected to be kept, because it is referenced in that Issue.
+The issue also mentions a short hash, to test if short hash longivity is well shorter. 
+
+
+## Referenced in a commit message
+The commit 5570e77cb5bb7c8801a748b20a2924381f7753f0 on branch `some-other-branch` references a series of squashed commits.
+It will be interesting to see these commits will be garbage collected or not.
